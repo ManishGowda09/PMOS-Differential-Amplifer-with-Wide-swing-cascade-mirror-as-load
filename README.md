@@ -42,7 +42,7 @@ M8 is diode-connected and sets the gate voltage of the NMOS mirror and cascode d
 
 ## Design Evolution
 
-| Parameter | Design A (20 µS) | Design B (100 µS, high gain) |
+| Parameter | Design A (20 µS, To achieve 40 dB) | Design B (100 µS, high gain) |
 |---|---|---|
 | Input transconductance (gm) | 20 µS | 100 µS |
 | Bias for M1 gate | Ideal source, 1.125 V | Removed, replaced by resistor-set bias |
