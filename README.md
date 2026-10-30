@@ -27,7 +27,7 @@ A fully differential amplifier designed for a **1.8 V supply** in the **SkyWater
 For 40 dB gain with Input Transconductance of 20µS.
 <p align="center">
 <img width="3072" height="1280" alt="Mini_project" src="https://github.com/user-attachments/assets/415d3bc8-9171-4401-8963-e7c929afd3ea" />
-</p>
+
 ## Function of Each Block
 
 **Tail current source (M1, PMOS)**
@@ -59,10 +59,10 @@ M8 is diode-connected and sets the gate voltage of the NMOS mirror and cascode d
 | Bias resistor (R1) | 80 kΩ | same |
 
 Design B raises gm to 100 µS by resizing the input pair, and replaces the fixed Vb source with a resistor-set bias so the bias follows Vdd.
-<p align="center">
+
 <img width="1536" height="640" alt="Mini_project" src="https://github.com/user-attachments/assets/f6ec2bc0-8f1d-4e16-95f2-4b69e683ee06" />
-</p>
-## Device Data (sky130)
+
+## Device Data ( SkyWater sky130nm pdk )
 
 | Device | Model | Type | Size (W × nf / L) |
 |---|---|---|---|
@@ -81,26 +81,26 @@ Input stimulus: sine sources at 240 mV common mode, ±3 mV amplitude, 1 kHz, 180
 ### Transient Output
 
 Transient output Design B
-<p align="center">
+
 <img width="1768" height="662" alt="image" src="https://github.com/user-attachments/assets/ee7ceefb-0e87-4bcf-ba75-5ffaf8c5e65d" />
-</p>
+
 Design A, 6 mV differential input:
 Output swing = 0.897917 V − 0.290625 V = **0.607 V peak-to-peak**
 
 Transient output Design A
-<p align="center">
+
 <img width="1920" height="1020" alt="Screenshot 2026-10-25 102447" src="https://github.com/user-attachments/assets/8f2dae64-ec08-4f37-bcee-80819c3395e2" />
-</p>
+
 ### Differential Gain (AC)
 
 Differential gain Design B
-<p align="center">
+
 <img width="927" height="798" alt="Screenshot 2026-10-30 100006" src="https://github.com/user-attachments/assets/83b795b1-7c9c-41f0-b14c-80abf4618402" />
-</p>
+
 Differential gain Design A
-<p align="center">
+
 <img width="1920" height="1020" alt="Screenshot 2026-10-25 101950" src="https://github.com/user-attachments/assets/a86c4538-b2cd-4bf9-944c-4f2a85aa7c9d" />
-</p>
+
 | Metric | Design A (20 µS) | Design B (100 µS) |
 |---|---|---|
 | Differential gain (nominal, TT) | 38.08 dB | 53.03 dB |
@@ -111,35 +111,35 @@ Differential gain Design A
 ### DC Transfer Characteristic
 
 DC transfer Design B
-<p align="center">
+
 <img width="932" height="705" alt="Screenshot 2026-10-30 100113" src="https://github.com/user-attachments/assets/b2b0217a-90d3-4850-b6fa-5ff32c467e6b" />
-</p>
+
 DC transfer Design A
-<p align="center">
+
 <img width="1920" height="1020" alt="Screenshot 2026-10-25 102018" src="https://github.com/user-attachments/assets/bed57dd1-f174-468e-aa17-c98a53f6ad05" />
-</p>
+
 ### Output Current vs. Output Voltage
 
 Output Current vs. Output Voltage Design B
-<p align="center">
+
 <img width="918" height="707" alt="Screenshot 2026-10-30 100135" src="https://github.com/user-attachments/assets/a77db2bc-4220-439c-802e-66976eeee762" />
-</p>
+
 Output Current vs. Output Voltage Design A
 Design A: Iout reaches the 10 µA design current near 0.3 V and stays on a flat plateau to about 1.0 V.
-<p align="center">
+
 <img width="1920" height="1020" alt="Screenshot 2026-10-25 101858" src="https://github.com/user-attachments/assets/e955e652-5d52-4feb-95b1-54662b5f584d" />
-</p>
+
 
 ### Common-Mode and Differential Gain
 
 Ad and Acm Design B
-<p align="center">
+
 <img width="918" height="695" alt="Screenshot 2026-10-30 100030" src="https://github.com/user-attachments/assets/21b2495a-ad04-4d5b-9a3e-523fefeca96b" />
-</p>
+
 Ad and Acm Design A
-<p align="center">
+
 <img width="1920" height="1020" alt="Screenshot 2026-10-25 102027" src="https://github.com/user-attachments/assets/9d2c21e8-54cb-42f9-a0cc-a5a39e3ecf7f" />
-</p>
+
 | Metric | Design A (20 µS) | Design B (100 µS) |
 |---|---|---|
 | Common-mode gain (nominal) | −23.22 dB | -53.08 dB |
@@ -147,23 +147,23 @@ Ad and Acm Design A
 
 ### CMRR
 
-CMRR Design B
-<p align="center">
-<img width="942" height="732" alt="Screenshot 2026-10-30 100047" src="https://github.com/user-attachments/assets/e71574e4-015c-42a8-9eee-eecfe58f7230" />
-</p>
-CMRR Design A
-<p align="center">
-<img width="1920" height="1020" alt="Screenshot 2026-10-25 101932" src="https://github.com/user-attachments/assets/b4fb8ec1-8997-4ed7-8c58-a750dc67ed6a" />
-</p>
+ CMRR Design B
+
+ <img width="942" height="732" alt="Screenshot 2026-10-30 100047" src="https://github.com/user-attachments/assets/e71574e4-015c-42a8-9eee-eecfe58f7230" />
+
+ CMRR Design A
+
+ <img width="1920" height="1020" alt="Screenshot 2026-10-25 101932" src="https://github.com/user-attachments/assets/b4fb8ec1-8997-4ed7-8c58-a750dc67ed6a" />
+
 ### Power Dissipation vs. Output Voltage
-Power Design B
-<p align="center">
-<img width="901" height="688" alt="Screenshot 2026-10-30 100155" src="https://github.com/user-attachments/assets/ff3d13b3-d89a-4088-8fb8-0a0ea16f0189" />
-</p>
-Power Design A
-<p align="center">
-<img width="1920" height="1020" alt="Screenshot 2026-10-25 102214" src="https://github.com/user-attachments/assets/bb9f925f-5dc1-4d4c-9b8e-cd402296bfaf" />
-</p>
+ Power Design B
+
+ <img width="901" height="688" alt="Screenshot 2026-10-30 100155" src="https://github.com/user-attachments/assets/ff3d13b3-d89a-4088-8fb8-0a0ea16f0189" />
+
+ Power Design A
+
+ <img width="1920" height="1020" alt="Screenshot 2026-10-25 102214" src="https://github.com/user-attachments/assets/bb9f925f-5dc1-4d4c-9b8e-cd402296bfaf" />
+
 | Metric | Design A (20 µS) | Design B (100 µS) |
 |---|---|---|
 | Power (nominal, Vout = 0.697 V) | 56.4 µW | 175.8 µW |
