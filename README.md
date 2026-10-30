@@ -10,9 +10,11 @@ the output is mentioned the above pdf kindly check that for more info.
 <img width="1536" height="640" alt="Mini_project" src="https://github.com/user-attachments/assets/f6ec2bc0-8f1d-4e16-95f2-4b69e683ee06" />
 this is the design for increased gain and here the Vb source is removed with the resistor that can track with change in temperature and vdd
 Also this is the output waveforms from the design.
-# Transient Output
+## Transient Output
+<p align="center">
 <img width="1768" height="662" alt="image" src="https://github.com/user-attachments/assets/ee7ceefb-0e87-4bcf-ba75-5ffaf8c5e65d" />
-# Differential Gain
+</p>
+## Differential Gain
 <img width="927" height="798" alt="image" src="https://github.com/user-attachments/assets/645d495b-6e3f-46c8-9c70-a68188b311e9" />
 # DC Characteristic Graph
 <img width="932" height="705" alt="image" src="https://github.com/user-attachments/assets/72612400-13d1-414e-bd34-9ff04a58e63d" />
