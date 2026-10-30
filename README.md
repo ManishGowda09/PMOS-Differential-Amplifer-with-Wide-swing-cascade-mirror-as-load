@@ -19,6 +19,11 @@ A fully differential amplifier designed for a **1.8 V supply** in the **SkyWater
 - **Bias generator:** Diode-connected NMOS (M8) fed from Vdd through a resistor (R1)
 
 ## Circuit Schematic
+
+<p align="center">
+<img width="728" height="526" alt="Screenshot 2026-10-30 132604" src="https://github.com/user-attachments/assets/cd1f30e3-40b1-436e-a6f0-a8c0ba835c1c" />
+</p>
+
 For 40 dB gain with Input Transconductance of 20µS.
 
 <img width="3072" height="1280" alt="Mini_project" src="https://github.com/user-attachments/assets/415d3bc8-9171-4401-8963-e7c929afd3ea" />
