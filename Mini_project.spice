@@ -1,0 +1,213 @@
+** sch_path: /foss/designs/manish/Mini_project.sch
+**.subckt Mini_project Vin1 Vin2 Vout Vb
+*.ipin Vin1
+*.ipin Vin2
+*.opin Vout
+*.ipin Vb
+XM2 net3 Vin1 net4 net5 sky130_fd_pr__pfet_01v8_lvt L=10 W=10 nf=1 ad=2.9 as=2.9 pd=20.58 ps=20.58 nrd=0.029 nrs=0.029 sa=0 sb=0
++ sd=0 mult=11 m=11
+XM3 Vout Vin2 net4 net5 sky130_fd_pr__pfet_01v8_lvt L=10 W=10 nf=1 ad=2.9 as=2.9 pd=20.58 ps=20.58 nrd=0.029 nrs=0.029 sa=0 sb=0
++ sd=0 mult=11 m=11
+XM4 net3 net6 net1 0 sky130_fd_pr__nfet_01v8 L=5 W=15 nf=1 ad=4.35 as=4.35 pd=30.58 ps=30.58 nrd=0.0193333333333333
++ nrs=0.0193333333333333 sa=0 sb=0 sd=0 mult=1
+XM5 Vout net6 net2 0 sky130_fd_pr__nfet_01v8 L=5 W=15 nf=1 ad=4.35 as=4.35 pd=30.58 ps=30.58 nrd=0.0193333333333333
++ nrs=0.0193333333333333 sa=0 sb=0 sd=0 mult=1
+XM6 net1 net3 0 0 sky130_fd_pr__nfet_01v8 L=5 W=15 nf=1 ad=4.35 as=4.35 pd=30.58 ps=30.58 nrd=0.0193333333333333
++ nrs=0.0193333333333333 sa=0 sb=0 sd=0 mult=1
+XM7 net2 net3 0 0 sky130_fd_pr__nfet_01v8 L=5 W=15 nf=1 ad=4.35 as=4.35 pd=30.58 ps=30.58 nrd=0.0193333333333333
++ nrs=0.0193333333333333 sa=0 sb=0 sd=0 mult=1
+XM8 net6 net6 0 0 sky130_fd_pr__nfet_01v8 L=5 W=3.75 nf=1 ad=1.0875 as=1.0875 pd=8.08 ps=8.08 nrd=0.0773333333333333
++ nrs=0.0773333333333333 sa=0 sb=0 sd=0 mult=1
+Vdd net5 0 1.8
+Vin1 Vin1 0 sin(0.55 1m 1k) AC 0.5
+Vin2 Vin2 0 sin(0.55 -1m 1k) AC -0.5
+R1 net5 net6 80K
+C1 Vout 0 1p
+XM1 net4 Vb net5 net5 sky130_fd_pr__pfet_01v8_lvt L=10 W=20.2 nf=1 ad=5.858 as=5.858 pd=40.98 ps=40.98 nrd=0.0143564356435644
++ nrs=0.0143564356435644 sa=0 sb=0 sd=0 mult=11 m=11
+R2 Vb 0 17K
+R3 Vb net5 10K
+**** begin user architecture code
+
+
+.lib /foss/pdks/ciel/sky130/versions/b344c97eacc2aaf8e14ae7e43e2e9dc0871de2c0/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+Vtest vt_node 0 dc 0
+S1 Vout vt_node ctrl 0 SW1
+Vsw ctrl 0 dc 0
+.model SW1 SW(Vt=0.5 Vh=0.1 Ron=1m Roff=1e15)
+
+.control
+  option temp = 27
+  alter vdd dc = 1.8
+  set color0=white
+  set color1=black
+  set color2=red
+  set color3=blue
+
+  op
+  echo --- Tail Transistor M1 ---
+  print @m.xm1.msky130_fd_pr__pfet_01v8_lvt[id]
+  print @m.xm1.msky130_fd_pr__pfet_01v8_lvt[vds]
+  print @m.xm1.msky130_fd_pr__pfet_01v8_lvt[vdsat]
+  print @m.xm1.msky130_fd_pr__pfet_01v8_lvt[vgs]
+  print @m.xm1.msky130_fd_pr__pfet_01v8_lvt[vth]
+  print @m.xm1.msky130_fd_pr__pfet_01v8_lvt[gm]
+  print @m.xm1.msky130_fd_pr__pfet_01v8_lvt[gds]
+
+  echo --- Differential Pair M2 ---
+  print @m.xm2.msky130_fd_pr__pfet_01v8_lvt[id]
+  print @m.xm2.msky130_fd_pr__pfet_01v8_lvt[vds]
+  print @m.xm2.msky130_fd_pr__pfet_01v8_lvt[vdsat]
+  print @m.xm2.msky130_fd_pr__pfet_01v8_lvt[vgs]
+  print @m.xm2.msky130_fd_pr__pfet_01v8_lvt[vth]
+  print @m.xm2.msky130_fd_pr__pfet_01v8_lvt[gm]
+  print @m.xm2.msky130_fd_pr__pfet_01v8_lvt[gds]
+
+  echo --- Differential Pair M3 ---
+  print @m.xm3.msky130_fd_pr__pfet_01v8_lvt[id]
+  print @m.xm3.msky130_fd_pr__pfet_01v8_lvt[vds]
+  print @m.xm3.msky130_fd_pr__pfet_01v8_lvt[vdsat]
+  print @m.xm3.msky130_fd_pr__pfet_01v8_lvt[vgs]
+  print @m.xm3.msky130_fd_pr__pfet_01v8_lvt[vth]
+  print @m.xm3.msky130_fd_pr__pfet_01v8_lvt[gm]
+  print @m.xm3.msky130_fd_pr__pfet_01v8_lvt[gds]
+
+  echo --- Current Mirror M4 ---
+  print @m.xm4.msky130_fd_pr__nfet_01v8[id]
+  print @m.xm4.msky130_fd_pr__nfet_01v8[vds]
+  print @m.xm4.msky130_fd_pr__nfet_01v8[vdsat]
+  print @m.xm4.msky130_fd_pr__nfet_01v8[vgs]
+  print @m.xm4.msky130_fd_pr__nfet_01v8[vth]
+  print @m.xm4.msky130_fd_pr__nfet_01v8[gm]
+  print @m.xm4.msky130_fd_pr__nfet_01v8[gds]
+
+  echo --- Current Mirror M5 ---
+  print @m.xm5.msky130_fd_pr__nfet_01v8[id]
+  print @m.xm5.msky130_fd_pr__nfet_01v8[vds]
+  print @m.xm5.msky130_fd_pr__nfet_01v8[vdsat]
+  print @m.xm5.msky130_fd_pr__nfet_01v8[vgs]
+  print @m.xm5.msky130_fd_pr__nfet_01v8[vth]
+  print @m.xm5.msky130_fd_pr__nfet_01v8[gm]
+  print @m.xm5.msky130_fd_pr__nfet_01v8[gds]
+
+  echo --- Cascode Current Mirror M6 ---
+  print @m.xm6.msky130_fd_pr__nfet_01v8[id]
+  print @m.xm6.msky130_fd_pr__nfet_01v8[vds]
+  print @m.xm6.msky130_fd_pr__nfet_01v8[vdsat]
+  print @m.xm6.msky130_fd_pr__nfet_01v8[vgs]
+  print @m.xm6.msky130_fd_pr__nfet_01v8[vth]
+  print @m.xm6.msky130_fd_pr__nfet_01v8[gm]
+  print @m.xm6.msky130_fd_pr__nfet_01v8[gds]
+
+  echo --- Cascode Current Mirror M7 ---
+  print @m.xm7.msky130_fd_pr__nfet_01v8[id]
+  print @m.xm7.msky130_fd_pr__nfet_01v8[vds]
+  print @m.xm7.msky130_fd_pr__nfet_01v8[vdsat]
+  print @m.xm7.msky130_fd_pr__nfet_01v8[vgs]
+  print @m.xm7.msky130_fd_pr__nfet_01v8[vth]
+  print @m.xm7.msky130_fd_pr__nfet_01v8[gm]
+  print @m.xm7.msky130_fd_pr__nfet_01v8[gds]
+
+  echo --- Bias Transistor M8 ---
+  print @m.xm8.msky130_fd_pr__nfet_01v8[id]
+  print @m.xm8.msky130_fd_pr__nfet_01v8[vds]
+  print @m.xm8.msky130_fd_pr__nfet_01v8[vdsat]
+  print @m.xm8.msky130_fd_pr__nfet_01v8[vgs]
+  print @m.xm8.msky130_fd_pr__nfet_01v8[vth]
+  print @m.xm8.msky130_fd_pr__nfet_01v8[gm]
+  print @m.xm8.msky130_fd_pr__nfet_01v8[gds]
+
+
+* ---------- Power dissipation (DC operating point) ----------
+
+  let i_vdd = -i(vdd)
+  let p_diss = 1.8 * i_vdd
+
+  echo --- * Supply current and Power dissipation * ---
+
+  print i_vdd p_diss
+
+
+* ---------- Transient ----------
+
+  tran 1u 5m
+
+ plot v(vin1) v(vin2) title 'Input: differential sine (1 kHz)'
+ plot v(vout) title 'Output: 1 kHz response'
+
+
+
+* ---------- Differential : gain, bandwidth, phase margin ----------
+
+  alter Vin1 ac = 0.5
+  alter Vin2 ac = -0.5
+  ac dec 50 1 10g
+  let ad_db = db(v(vout))
+  let ad_ph = ph(v(vout)) * 180 / pi
+  let ad_ph_rel = ad_ph - ad_ph[0]
+  let dist3 = ad_db - (ad_db[0] - 3)
+  meas ac f_3dB WHEN dist3=0 CROSS=1
+  meas ac f_ugf WHEN ad_db=0 CROSS=1
+  meas ac phase_at_ugf FIND ad_ph_rel WHEN ad_db=0 CROSS=1
+  let pm_deg = 180 + phase_at_ugf
+
+  echo --- * Differential Gain, Bandwidth, Phase margin * ---
+  print ad_db[0] f_3dB f_ugf pm_deg
+  plot ad_db title 'Differential Gain Ad (dB)'
+  plot ad_ph title 'Differential Phase (deg)'
+
+
+* ---------- CMRR ----------
+
+  alter Vin1 ac = 1
+  alter Vin2 ac = 0
+  ac dec 50 1 10g
+
+  alter Vin1 ac = 0
+  alter Vin2 ac = 1
+  ac dec 50 1 10g
+
+
+  let Ad_c   = (ac2.v(vout) - ac3.v(vout)) / 2
+  let Acm_c  = ac2.v(vout) + ac3.v(vout)
+  let cmrr_c = db(Ad_c / Acm_c)
+
+  echo --- * Differential Gain Ad(dB), Common-mode Gain Acm(dB), CMRR(dB) * ---
+
+  print db(Ad_c)[0] db(Acm_c)[0] cmrr_c[0]
+  plot db(Ad_c) db(Acm_c) title 'Ad and Acm (dB)'
+  plot cmrr_c title 'CMRR (dB)'
+
+
+  alter Vin1 ac = 0.5
+  alter Vin2 ac = -0.5
+
+* ---------- DC transfer ----------
+  dc Vin2 0 1.8 0.01
+  plot Vout title 'DC transfer Characteristic'
+
+  write miniproject.raw
+
+* ---------- Io vs Vo sweep (M5/M7 cascode mirror output current) ----------
+  alter Vsw dc = 1
+  save all @m.xm5.msky130_fd_pr__nfet_01v8[id] @m.xm3.msky130_fd_pr__pfet_01v8_lvt[id]
+  dc Vtest 0 1.8 0.005
+
+  let Iout = @m.xm5.msky130_fd_pr__nfet_01v8[id]
+  let Im3  = -@m.xm3.msky130_fd_pr__pfet_01v8_lvt[id]
+  let Vo   = v(vout)
+
+  plot Iout vs Vo title 'Io vs Vo (M5/M7 cascode mirror)' xlabel 'Vout (V)' ylabel 'Iout (A)'
+  plot Iout Im3 vs Vo title 'M5 sink vs M3 source' xlabel 'Vout (V)' ylabel 'Current (A)'
+
+  let p_v = -1.8 * i(vdd) * 1e6
+  plot p_v vs Vo title 'Power vs output voltage (uW)' xlabel 'Vout (V)' ylabel 'Power (uW)'
+
+  alter Vsw dc = 0
+.endc
+
+
+**** end user architecture code
+**.ends
+.end
